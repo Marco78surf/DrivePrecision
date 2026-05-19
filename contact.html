@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Drive Precision</title>
+<meta name="description" content="Contactez Drive Precision pour réserver votre session de pilotage en Alpine A110 S avec Philippe Legros, moniteur BPJEPS FFSA Academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* ─── PAGE CONTACT ───────────────────────── */
+  .contact-page {
+    min-height: 100vh;
+    padding-top: 90px;
+    background: var(--black);
+  }
+
+  /* ─── CONTACT LAYOUT ─────────────────────── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+    align-items: start;
+  }
+
+  /* ─── CONTACT INFO ───────────────────────── */
+  .contact-info {
+    padding: 52px 48px 52px 0;
+    border-right: 1px solid #1e1e1e;
+    position: sticky;
+    top: 120px;
+  }
+  .contact-info-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .contact-info-label::before { content: ''; display: block; width: 16px; height: 1.5px; background: var(--red); }
+  .contact-info-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic; font-weight: 900;
+    font-size: clamp(36px, 3.8vw, 52px); line-height: .95;
+    color: #fff; margin-bottom: 14px;
+  }
+  .contact-info-title span { color: var(--red); }
+  .contact-info-promise {
+    font-size: 14px; color: rgba(226,225,224,.42); margin-bottom: 44px;
+    line-height: 1.6; letter-spacing: .02em;
+  }
+
+  .contact-channels {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .contact-channel {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .contact-channel-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--dark3); border: 1px solid #2a2a2a;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red);
+  }
+  .contact-channel-icon svg { width: 18px; height: 18px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+  .contact-channel-body {}
+  .contact-channel-type {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 10px; letter-spacing: .18em;
+    text-transform: uppercase; color: rgba(226,225,224,.35);
+    margin-bottom: 3px;
+  }
+  .contact-channel-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 17px; color: #fff;
+    text-decoration: none; transition: color .2s;
+  }
+  .contact-channel-value:hover { color: var(--blue); }
+  .contact-channel-value.insta {
+    display: flex; align-items: center; gap: 6px; font-size: 16px;
+  }
+  .contact-channel-value.insta svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  .contact-separator {
+    width: 40px; height: 1px; background: #2a2a2a; margin: 28px 0;
+  }
+  .contact-delay {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 13px; letter-spacing: .08em;
+    text-transform: uppercase; color: rgba(226,225,224,.35);
+  }
+  .contact-delay::before {
+    content: ''; width: 8px; height: 8px; background: #22c55e;
+    border-radius: 50%; flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(34,197,94,.5);
+  }
+
+  /* ─── FORM ───────────────────────────────── */
+  .contact-form-wrap {
+    padding: 52px 0 52px 52px;
+  }
+  .contact-form {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .form-group {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .form-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 11px; letter-spacing: .15em;
+    text-transform: uppercase; color: rgba(226,225,224,.45);
+  }
+  .form-label .required { color: var(--red); margin-left: 3px; }
+  .form-input, .form-select, .form-textarea {
+    background: var(--dark2); border: 1px solid #2a2a2a;
+    color: var(--cream); font-family: 'Barlow', sans-serif;
+    font-size: 14px; padding: 12px 16px;
+    outline: none; transition: border-color .2s, background .2s;
+    appearance: none; -webkit-appearance: none;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--red); background: #181818;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(226,225,224,.2); }
+  .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='rgba(226,225,224,.35)' stroke-width='1.8'%3E%3Cpolyline points='2,4.5 7,9.5 12,4.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; padding-right: 38px; }
+  .form-select option { background: #1c1c1c; color: var(--cream); }
+  .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+  /* Captcha */
+  .captcha-box {
+    background: var(--dark2); border: 1px solid #2a2a2a;
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .captcha-checkbox-wrap {
+    position: relative; width: 22px; height: 22px; flex-shrink: 0;
+  }
+  .captcha-checkbox-wrap input[type="checkbox"] {
+    position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; z-index: 1;
+  }
+  .captcha-checkmark {
+    width: 22px; height: 22px;
+    border: 1.5px solid #444; background: #111;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none; transition: border-color .2s, background .2s;
+  }
+  .captcha-checkbox-wrap input:checked ~ .captcha-checkmark {
+    border-color: var(--red); background: var(--red);
+  }
+  .captcha-checkmark svg {
+    width: 13px; height: 13px; stroke: #fff; fill: none; stroke-width: 2.5;
+    opacity: 0; transition: opacity .15s;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .captcha-checkbox-wrap input:checked ~ .captcha-checkmark svg { opacity: 1; }
+  .captcha-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13.5px; color: rgba(226,225,224,.6);
+    flex: 1;
+  }
+  .captcha-logo {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    flex-shrink: 0; opacity: .4;
+  }
+  .captcha-logo-icon { font-size: 20px; }
+  .captcha-logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 8px; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(226,225,224,.5);
+  }
+
+  /* Submit */
+  .btn-submit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic; font-weight: 700; font-size: 16px;
+    letter-spacing: .1em; text-transform: uppercase;
+    background: var(--red); color: #fff; border: none;
+    padding: 16px 40px; cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background .2s, transform .15s;
+    align-self: flex-start;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .btn-submit:hover { background: #c02e2f; transform: scale(1.02); }
+  .btn-submit svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* Success / Error messages */
+  .form-feedback {
+    display: none;
+    padding: 16px 20px;
+    border-left: 3px solid var(--red);
+    background: rgba(223,60,61,.07);
+    font-size: 14px; color: rgba(226,225,224,.8);
+    line-height: 1.6;
+  }
+  .form-feedback.success {
+    border-color: #22c55e; background: rgba(34,197,94,.07); color: rgba(226,225,224,.8);
+  }
+  .form-feedback.visible { display: block; }
+
+  /* Honeypot hidden field */
+  .hp-field { display: none !important; visibility: hidden; }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 900px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      padding: 0 24px 60px;
+    }
+    .contact-info {
+      padding: 40px 0 32px;
+      border-right: none;
+      border-bottom: 1px solid #1e1e1e;
+      position: static;
+    }
+    .contact-form-wrap { padding: 40px 0 0; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .btn-submit { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" aria-label="Drive Precision — Accueil">
+    <img src="assets/img/logo.png" alt="Drive Precision" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#stages">Nos stages</a></li>
+    <li><a href="index.html#voiture">L'Alpine</a></li>
+    <li><a href="index.html#coach">Ton coach</a></li>
+    <li><a href="index.html#circuits">Circuits</a></li>
+    <li><a href="index.html#temoignages">Témoignages</a></li>
+    <li><a href="contact.html" aria-current="page">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
+</nav>
+
+<div class="contact-page">
+
+  <!-- LAYOUT -->
+  <div class="contact-layout">
+
+    <!-- INFO -->
+    <aside class="contact-info">
+      <h2 class="contact-info-title">PRÊT À PRENDRE<br>LE <span>VOLANT</span> ?</h2>
+      <p class="contact-info-promise">Devis personnalisé · Disponible toute l'année</p>
+
+      <div class="contact-channels">
+
+        <div class="contact-channel">
+          <div class="contact-channel-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          </div>
+          <div class="contact-channel-body">
+            <div class="contact-channel-type">Téléphone</div>
+            <a href="tel:+33681193607" class="contact-channel-value">+33 6 81 19 36 07</a>
+          </div>
+        </div>
+
+        <div class="contact-channel">
+          <div class="contact-channel-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-channel-body">
+            <div class="contact-channel-type">Email</div>
+            <a href="mailto:contact@driveprecision.fr" class="contact-channel-value">contact@driveprecision.fr</a>
+          </div>
+        </div>
+
+        <div class="contact-channel">
+          <div class="contact-channel-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="contact-channel-body">
+            <div class="contact-channel-type">Instagram</div>
+            <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="contact-channel-value insta">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @driveprecision
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact-separator"></div>
+      <div class="contact-delay">Réponse sous 24 heures</div>
+    </aside>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <form class="contact-form" id="contactForm" novalidate>
+
+        <!-- Honeypot anti-spam -->
+        <div class="hp-field" aria-hidden="true">
+          <input type="text" name="_hp_website" tabindex="-1" autocomplete="off" value="">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="prenom">Prénom<span class="required">*</span></label>
+            <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Philippe" autocomplete="given-name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="nom">Nom<span class="required">*</span></label>
+            <input class="form-input" type="text" id="nom" name="nom" placeholder="Legros" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email<span class="required">*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="votre@email.fr" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telephone">Téléphone</label>
+            <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entreprise">Entreprise</label>
+          <input class="form-input" type="text" id="entreprise" name="entreprise" placeholder="Votre société (optionnel)" autocomplete="organization">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sujet">Sujet<span class="required">*</span></label>
+          <select class="form-select" id="sujet" name="sujet" required>
+            <option value="" disabled selected>Sélectionnez un sujet</option>
+            <option value="Coaching avec ma voiture">Coaching avec ma voiture</option>
+            <option value="Coaching en Alpine A110 S">Coaching en Alpine A110 S</option>
+            <option value="Stage Prenez le Contrôle ! Niv. 1">Stage Prenez le Contrôle ! Niv. 1</option>
+            <option value="Incentive & Team Building entreprise">Incentive &amp; Team Building entreprise</option>
+            <option value="Sécurité Routière">Sécurité Routière</option>
+            <option value="Renseignements généraux">Renseignements généraux</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message<span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez votre projet, votre niveau, la date souhaitée, le circuit envisagé…" required></textarea>
+        </div>
+
+        <!-- Faux captcha -->
+        <div class="captcha-box">
+          <div class="captcha-checkbox-wrap">
+            <input type="checkbox" id="captcha" name="captcha" required>
+            <div class="captcha-checkmark">
+              <svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg>
+            </div>
+          </div>
+          <span class="captcha-text">Je ne suis pas un robot</span>
+          <div class="captcha-logo">
+            <span class="captcha-logo-icon">🛡</span>
+            <span class="captcha-logo-text">Drive<br>Secure</span>
+          </div>
+        </div>
+
+        <div class="form-feedback" id="formFeedback"></div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          Envoyer ma demande
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+        </button>
+
+      </form>
+    </div>
+
+  </div><!-- /contact-layout -->
+</div><!-- /contact-page -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="mentions-legales.html" class="footer-ml">Mentions légales</a>
+  </div>
+  <div class="footer-badge">FFSA Academy - Moniteur BPJEPS</div>
+  <div class="footer-contact">
+    <a href="tel:+33681193607">+33 6 81 19 36 07</a>
+    <a href="mailto:contact@driveprecision.fr">contact@driveprecision.fr</a>
+    <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="footer-insta">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      @driveprecision
+    </a>
+    <div class="footer-copy">© 2026 Drive Precision — Tous droits réservés</div>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Form submission (front-end only — adapt to your back-end or service)
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedback.className = 'form-feedback';
+
+      // Honeypot check
+      const hp = form.querySelector('input[name="_hp_website"]');
+      if (hp && hp.value) return;
+
+      // Captcha check
+      const captcha = form.querySelector('#captcha');
+      if (!captcha.checked) {
+        feedback.textContent = 'Veuillez cocher la case "Je ne suis pas un robot" avant d\'envoyer.';
+        feedback.classList.add('visible');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(el => {
+        if (el.type === 'checkbox') {
+          if (!el.checked) valid = false;
+        } else if (!el.value.trim()) {
+          valid = false;
+        }
+      });
+      if (!valid) {
+        feedback.textContent = 'Merci de remplir tous les champs obligatoires (marqués *).';
+        feedback.classList.add('visible');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      // ── Simuler l'envoi (remplacer par votre intégration back-end / Formspree / etc.) ──
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours…';
+
+      setTimeout(() => {
+        feedback.innerHTML = '<strong>Message envoyé !</strong> Philippe vous répondra dans les 24 heures. À très bientôt sur les circuits.';
+        feedback.classList.add('success', 'visible');
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer ma demande <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>';
+      }, 900);
+    });
+  })();
+</script>
+</body>
+</html>
