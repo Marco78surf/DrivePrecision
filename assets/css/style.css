@@ -33,9 +33,7 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   padding: 6px 48px;
-  overflow: hidden;
   background: linear-gradient(to bottom, rgba(0,0,0,.85), transparent);
-  backdrop-filter: blur(2px);
   transition: background .3s;
 }
 nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,255,255,.07); }
@@ -907,10 +905,11 @@ footer {
 @media (max-width: 720px) {
   nav { padding: 10px 20px; }
   .nav-burger { display: flex; }
+  .nav-cta { display: none; }
   .nav-logo-img { height: 46px; }
   .nav-links {
     position: fixed; inset: 0;
-    background: rgba(0,0,0,.97);
+    background: #000;
     flex-direction: column; align-items: center; justify-content: center;
     gap: 28px; list-style: none; padding: 0; margin: 0;
     transform: translateX(100%);
@@ -919,7 +918,7 @@ footer {
     display: flex !important;
   }
   .nav-links.is-open { transform: translateX(0); }
-  .nav-links a { font-size: 26px; color: rgba(226,225,224,.85); }
+  .nav-links a { font-size: 20px; color: rgba(226,225,224,.85); }
   .nav-links a:hover { color: #fff; }
   .pillars,
   .stages,

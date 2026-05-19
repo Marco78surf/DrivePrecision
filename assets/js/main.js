@@ -87,16 +87,22 @@
       return 3;
     };
 
-    // Build 3 fixed dots (one per page position)
-    for (let i = 0; i < 3; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'testi-dot' + (i === 1 ? ' is-active' : '');
-      dot.setAttribute('aria-label', 'Page ' + (i + 1));
-      dot.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(dot);
-    }
-
-    const dots = [...dotsWrap.querySelectorAll('.testi-dot')];
+    // Build dots dynamically: one dot per possible position
+    let prevVisible = 0;
+    const buildDots = () => {
+      const visible = visibleCount();
+      if (visible === prevVisible) return;
+      prevVisible = visible;
+      const numDots = total - visible + 1;
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'testi-dot';
+        dot.setAttribute('aria-label', 'Page ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      }
+    };
 
     const goTo = (index) => {
       const visible = visibleCount();
@@ -109,7 +115,7 @@
       cards.forEach(c => { c.style.width = cardW + 'px'; });
       track.style.transform = `translateX(-${current * (cardW + gap)}px)`;
 
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+      [...dotsWrap.querySelectorAll('.testi-dot')].forEach((d, i) => d.classList.toggle('is-active', i === current));
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current >= maxIndex;
     };
@@ -117,14 +123,15 @@
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
-    // Reset on resize
+    // Reset on resize — rebuild dots if visible count changed
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => goTo(current), 120);
+      resizeTimer = setTimeout(() => { buildDots(); goTo(current); }, 120);
     });
 
-    goTo(1);
+    buildDots();
+    goTo(visibleCount() <= 1 ? 0 : 1);
 
     // Auto-advance every 6 s
     let autoTimer = setInterval(() => {
