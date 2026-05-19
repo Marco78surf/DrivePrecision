@@ -247,6 +247,9 @@
     <li><a href="index.html#temoignages">Témoignages</a></li>
     <li><a href="contact.html" aria-current="page">Contact</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
 </nav>
 
@@ -467,6 +470,25 @@
         submitBtn.innerHTML = 'Envoyer ma demande <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>';
       }, 900);
     });
+    // ── Burger menu ────────────────────────────────────────
+    const burger = document.getElementById('navBurger');
+    const navLinksList = nav ? nav.querySelector('.nav-links') : null;
+    if (burger && navLinksList) {
+      burger.addEventListener('click', () => {
+        const isOpen = burger.classList.toggle('is-open');
+        navLinksList.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navLinksList.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          burger.classList.remove('is-open');
+          navLinksList.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    }
   })();
 </script>
 </body>

@@ -875,6 +875,23 @@ footer {
 }
 .insta-link--name:hover { border: none; }
 
+/* ─── BURGER MENU ────────────────────────── */
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+  z-index: 110; flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 2px;
+  background: rgba(226,225,224,.85);
+  transition: transform .3s, opacity .3s;
+  transform-origin: center;
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width: 1024px) {
   .pillars,
@@ -889,7 +906,21 @@ footer {
 
 @media (max-width: 720px) {
   nav { padding: 10px 20px; }
-  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .nav-logo-img { height: 46px; }
+  .nav-links {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.97);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 28px; list-style: none; padding: 0; margin: 0;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    z-index: 105;
+    display: flex !important;
+  }
+  .nav-links.is-open { transform: translateX(0); }
+  .nav-links a { font-size: 26px; color: rgba(226,225,224,.85); }
+  .nav-links a:hover { color: #fff; }
   .pillars,
   .stages,
   .circuits-grid { grid-template-columns: 1fr; }
@@ -902,6 +933,13 @@ footer {
   .hero-stats { display: none; }
   .voiture-specs { grid-template-columns: 1fr 1fr; }
   .coach-name { font-size: 40px; }
-  footer { flex-direction: column; align-items: flex-start; }
+  footer {
+    flex-direction: column; align-items: flex-start;
+    padding: 20px; gap: 8px;
+  }
+  .footer-badge {
+    position: static; transform: none;
+    align-self: flex-start; margin: 2px 0;
+  }
   .footer-contact { text-align: left; }
 }

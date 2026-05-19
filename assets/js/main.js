@@ -143,4 +143,24 @@
     });
   }
 
+  // ── Burger menu ────────────────────────────────────────
+  const burger = document.getElementById('navBurger');
+  const navLinksList = nav ? nav.querySelector('.nav-links') : null;
+  if (burger && navLinksList) {
+    burger.addEventListener('click', () => {
+      const isOpen = burger.classList.toggle('is-open');
+      navLinksList.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    navLinksList.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        navLinksList.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
 })();
