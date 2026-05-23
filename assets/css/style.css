@@ -59,7 +59,7 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
 .nav-links a:hover { color: #fff; }
 .nav-cta {
   font-family: 'Barlow Condensed', sans-serif;
-  font-style: italic; font-weight: 700; font-size: 14px;
+  font-style: italic; font-weight: 700; font-size: 17px;
   letter-spacing: .08em; text-transform: uppercase;
   background: var(--red); color: #fff;
   border: none; padding: 10px 24px; cursor: pointer;
@@ -68,7 +68,7 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
   display: flex; flex-direction: column; align-items: center; gap: 2px;
 }
 .nav-cta-tel {
-  font-size: 11px; font-weight: 400; font-style: normal;
+  font-size: 13px; font-weight: 400; font-style: normal;
   letter-spacing: .04em; opacity: .85; text-transform: none;
 }
 .nav-cta:hover { background: #c02e2f; transform: scale(1.03); }
@@ -108,15 +108,19 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
 }
 .hero-stripe {
   position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(to right, var(--red) 0%, var(--red) 35%, var(--blue) 35%, var(--blue) 55%, transparent 55%);
+  background: linear-gradient(to right, var(--blue) 0%, var(--blue) 33.33%, #fff 33.33%, #fff 66.67%, var(--red) 66.67%, var(--red) 100%);
 }
 .hero-content {
   position: relative; z-index: 2;
   padding: 0 80px 48px 52px;
   max-width: 700px;
   display: flex; flex-direction: column; justify-content: flex-end;
-  border-left: 3px solid var(--red);
   animation: heroFade .9s ease-out both;
+}
+.hero-content::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--blue);
 }
 @keyframes heroFade { from { opacity:0; transform: translateX(-28px); } to { opacity:1; transform: translateX(0); } }
 .hero-tag {
@@ -166,7 +170,7 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
 .btn-secondary::after { content: '→'; font-style: normal; }
 
 .hero-stats {
-  position: absolute; right: 80px; bottom: 48px; z-index: 2;
+  position: absolute; right: 40px; bottom: 48px; z-index: 2;
   display: flex; flex-direction: column; gap: 20px;
   animation: heroFade 1.1s ease-out both;
 }
@@ -500,6 +504,27 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
   font-weight: 700; font-size: 20px; color: var(--red);
   line-height: 1;
 }
+
+/* ─── CIRCUIT STATS ──────────────────────── */
+.circuit-stats {
+  margin: 0 18px 14px;
+  border-top: 1px solid #1e1e1e;
+  padding-top: 12px;
+}
+.circuit-stat-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px;
+}
+.circuit-stat-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-size: 11px; gap: 4px;
+  border-bottom: 1px solid #1e1e1e; padding-bottom: 3px;
+}
+.circuit-stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(226,225,224,.38); white-space: nowrap;
+}
+.circuit-stat-value { color: rgba(226,225,224,.8); font-weight: 500; }
 
 /* ─── TESTIMONIALS ───────────────────────── */
 .testi-section { background: var(--dark); padding: 80px 48px; }
@@ -892,6 +917,11 @@ footer {
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width: 1024px) {
+  nav { padding: 6px 24px; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 13px; letter-spacing: .08em; white-space: nowrap; }
+  .nav-cta { font-size: 14px; }
+  .nav-cta-tel { font-size: 11px; }
   .pillars,
   .stages,
   .circuits-grid { grid-template-columns: repeat(2, 1fr); }

@@ -12,7 +12,22 @@
       const target = document.getElementById(el.dataset.scrollTo);
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      const navH = nav ? nav.offsetHeight : 0;
+      const y = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
+
+  // Smooth scroll for all nav anchor links with exact nav offset
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      const navH = nav ? nav.offsetHeight : 0;
+      const y = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
 
