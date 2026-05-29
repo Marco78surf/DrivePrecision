@@ -26,7 +26,26 @@
     <li><a href="#temoignages">LES TÉMOIGNAGES</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener" aria-label="Instagram DrivePrecision" class="nav-insta">
+      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <radialGradient id="ig-gradient" cx="0.3" cy="1" r="1.2">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="10%" stop-color="#fdf497"/>
+            <stop offset="30%" stop-color="#fd5949"/>
+            <stop offset="55%" stop-color="#d6249f"/>
+            <stop offset="80%" stop-color="#8c33b0"/>
+            <stop offset="100%" stop-color="#4f5bd5"/>
+          </radialGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5" fill="url(#ig-gradient)"/>
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
+        <circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/>
+      </svg>
+    </a>
+    <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
+  </div>
   <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -202,7 +221,7 @@
     <div class="voiture">
     <div class="voiture-visual">
       <div class="voiture-img-wrap">
-        <img class="voiture-img" src="assets/img/alpine-a110.jpg" alt="Alpine A110 S">
+        <img class="voiture-img" src="assets/img/alpine-a110.png" alt="Alpine A110 S">
       </div>
       <div class="voiture-specs">
         <div class="spec"><div class="spec-val">300</div><div class="spec-label">Chevaux</div></div>
@@ -245,36 +264,76 @@
       <h2 class="section-title">L'HOMME DERRIÈRE<br>CHAQUE <span>TRAJECTOIRE</span></h2>
     </div>
     <div class="coach-layout">
-      <!-- PHOTOS -->
-      <div class="coach-photos">
-        <div class="coach-photo-main lightbox-trigger" data-src="assets/img/coach-main.png" data-caption="Philippe Legros — Drive Precision">
-          <img src="assets/img/coach-main.png" alt="Philippe Legros - Drive Precision">
-          <div class="coach-article-badge">Presse · Le Mans</div>
-          <div class="photo-zoom-icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <!-- CAROUSEL PHOTOS -->
+      <div class="coach-carousel" id="coachCarousel">
+        <div class="coach-carousel-track" id="coachTrack">
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-0.jpg" data-caption="Photo 0">
+            <img src="assets/img/coach-carousel-0.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-1.jpg" data-caption="Photo 1">
+            <img src="assets/img/coach-carousel-1.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-2.jpg" data-caption="Photo 2">
+            <img src="assets/img/coach-carousel-2.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-3.jpg" data-caption="Photo 3">
+            <img src="assets/img/coach-carousel-3.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-4.png" data-caption="Photo 4">
+            <img src="assets/img/coach-carousel-4.png" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-5.jpg" data-caption="Photo 5">
+            <img src="assets/img/coach-carousel-5.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-6.jpg" data-caption="Photo 6">
+            <img src="assets/img/coach-carousel-6.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-7.png" data-caption="Photo 7">
+            <img src="assets/img/coach-carousel-7.png" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-8.jpg" data-caption="Photo 8">
+            <img src="assets/img/coach-carousel-8.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-9.jpg" data-caption="Photo 9">
+            <img src="assets/img/coach-carousel-9.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-10.jpg" data-caption="Photo 10">
+            <img src="assets/img/coach-carousel-10.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-11.png" data-caption="Photo 11">
+            <img src="assets/img/coach-carousel-11.png" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="coach-carousel-slide lightbox-trigger" data-src="assets/img/coach-carousel-12.jpg" data-caption="Photo 12">
+            <img src="assets/img/coach-carousel-12.jpg" alt="Philippe Legros - Drive Precision" loading="lazy">
+            <div class="photo-zoom-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
           </div>
         </div>
-        <div class="coach-photo-small lightbox-trigger" data-src="assets/img/coach-1.jpg" data-caption="Circuit Bugatti · &laquo;&nbsp;Prendre le cancer de vitesse&nbsp;&raquo;">
-          <img src="assets/img/coach-1.jpg" alt="Philippe Legros au Circuit Bugatti">
-          <div class="coach-photo-caption">Circuit Bugatti · &laquo;&nbsp;Prendre le cancer de vitesse&nbsp;&raquo;</div>
-          <div class="photo-zoom-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          </div>
-        </div>
-        <div class="coach-photo-small lightbox-trigger" data-src="assets/img/coach-2.jpg" data-caption="En piste !">
-          <img src="assets/img/coach-2.jpg" alt="Philippe Legros en piste">
-          <div class="coach-photo-caption">En piste !</div>
-          <div class="photo-zoom-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          </div>
-        </div>
+        <button class="coach-carousel-btn coach-carousel-prev" id="coachPrev" aria-label="Photo précédente">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="coach-carousel-btn coach-carousel-next" id="coachNext" aria-label="Photo suivante">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="coach-carousel-dots" id="coachDots"></div>
       </div>
 
       <!-- CONTENT -->
       <div class="coach-content">
         <div class="coach-name-row">
           <div class="coach-name">PHILIPPE <span>LEGROS</span></div>
-          <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="insta-link insta-link--name" aria-label="Instagram Drive Precision">
+          <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener noreferrer" class="insta-link insta-link--name" aria-label="Instagram Drive Precision">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
@@ -324,8 +383,8 @@
 <section id="circuits" style="background:var(--dark2);">
   <div class="circuits-section">
     <div class="section-header" style="padding:0;">
-      <div class="section-tag">Où rouler</div>
-      <h2 class="section-title">LES <span>CIRCUITS</span></h2>
+      <div class="section-tag">LES CIRCUITS</div>
+      <h2 class="section-title">OÙ <span>ROULER ?</span></h2>
       <p class="section-desc">6 circuits régulièrement utilisés, soigneusement sélectionnés du Grand Ouest à la façade Atlantique. <span style="color: var(--blue);">D'autres circuits sont accessibles sur demande. N'hésitez pas à me contacter pour adapter le programme à vos envies.</span></p>
     </div>
     <div class="circuits-grid">
@@ -465,12 +524,12 @@
       <div class="circuit-card">
         <div class="circuit-layout">
           <svg viewBox="0 0 200 100" class="circuit-svg" aria-hidden="true">
-            <path d="M 72,57 C 59,53 24,49 15,43 C 6,37 11,28 20,22 C 30,16 52,11 72,9 C 92,7 125,6 142,10 C 159,14 170,23 172,32 C 174,41 162,58 153,64 C 144,70 129,70 119,70 C 109,70 102,68 94,66 C 86,64 83,57 72,57 C 61,57 38,61 28,64 C 19,67 11,72 15,76 C 19,80 40,85 53,86 C 67,87 88,85 96,83 C 104,81 104,77 100,73 C 96,69 84,59 72,57 Z"/>
+            <path d="M 47.7,11.8 C 48.3,10 49.3,8.5 50.6,7.4 C 51.9,6.3 53.5,5.6 55.5,5 C 57.5,4.4 59.5,4.2 62.8,4 C 66.1,3.8 70.1,3.2 75.4,4 C 80.8,4.8 88.5,7 94.9,8.9 C 101.3,10.8 104.8,10 113.9,15.2 C 123,20.4 143.2,35.5 149.4,40 C 155.7,44.5 151.1,41.9 151.4,42.5 C 151.7,43.1 151.6,43.5 151.4,43.9 C 151.2,44.3 151.1,44.7 150.4,44.9 C 149.7,45.1 149.4,45.3 147,44.9 C 144.6,44.5 139,44 135.8,42.5 C 132.6,41 129.8,37.4 128,36.1 C 126.2,34.8 130.5,36.6 125.1,34.7 C 119.7,32.8 100.6,26.7 95.4,24.9 C 90.2,23.1 94.4,24.9 93.9,24 C 93.4,23.1 93.2,20.8 92.5,19.6 C 91.8,18.4 91,17.6 89.5,16.7 C 88,15.8 85.7,14.9 83.2,14.2 C 80.7,13.5 76.9,12.6 74.4,12.3 C 71.9,12 69.7,12.1 68.1,12.3 C 66.5,12.5 65.5,13.2 64.7,13.7 C 63.9,14.2 63.5,14.2 63.2,15.2 C 62.9,16.2 62.5,18.5 62.8,19.6 C 63,20.7 64.1,21.5 64.7,22 C 65.3,22.5 65.2,22.6 66.2,22.5 C 67.2,22.4 68.9,21.7 70.6,21.5 C 72.3,21.3 72.4,19.6 76.4,21.5 C 80.5,23.4 86.7,29.6 94.9,33.2 C 103.1,36.8 119.7,40.6 125.6,42.9 C 131.5,45.2 129.4,45.6 130.4,46.8 C 131.4,48 130.8,49.1 131.4,50.2 C 132,51.4 130.6,52.7 133.8,53.7 C 137,54.7 147.2,55.4 150.4,56.1 C 153.6,56.8 152.4,57.3 152.8,58 C 153.2,58.7 153.2,59.6 152.8,60.5 C 152.4,61.4 151.6,62.4 150.4,63.4 C 149.2,64.5 149,65.5 145.5,66.8 C 142,68.1 134.3,69.3 129.4,71.2 C 124.5,73.2 119,76.5 115.8,78.5 C 112.6,80.5 112.7,80.5 110.5,83.3 C 108.3,86 104.3,92.9 102.7,95 C 101.1,97.1 101.5,96.2 100.7,96 C 99.9,95.8 99.2,95.5 97.8,93.6 C 96.4,91.7 93.4,86.7 92.5,84.8 C 91.6,82.9 92.1,83.1 92.5,82.4 C 92.9,81.7 94.5,81.3 94.9,80.4 C 95.3,79.5 97,84.2 94.9,77 C 92.8,69.8 85,44.3 82.2,37.1 C 79.4,29.9 80.4,35.1 77.9,33.7 C 75.4,32.3 70.4,29.5 67.1,28.8 C 63.8,28.1 60.3,29.5 57.9,29.3 C 55.5,29.1 54.4,28.7 53,27.9 C 51.6,27.1 50.6,26 49.6,24.4 C 48.6,22.8 47.5,20.2 47.2,18.1 C 46.9,16 47.1,13.6 47.7,11.8 Z"/>
           </svg>
           <div class="circuit-len">4,4 kms</div>
         </div>
         <div class="circuit-info">
-          <div class="circuit-name">Circuit de Magny-Cours</div>
+          <div class="circuit-name">Circuit de Nevers Magny-Cours</div>
           <div class="circuit-location">
             <span class="circuit-city">MAGNY-COURS</span>
             <span class="circuit-dept">58</span>
@@ -481,13 +540,13 @@
           </button>
         </div>
         <div class="circuit-detail"><div class="circuit-detail-inner">
-          <p class="circuit-desc">Pont-l'Évêque est un tracé en huit qui surprend toujours au premier abord. La traversée centrale change le sens de rotation : ça met à l'épreuve la mémoire musculaire et oblige à rester pleinement concentré. C'est un circuit où la compréhension des trajectoires prime sur la vitesse brute, idéal pour développer la finesse et la lecture de piste.</p>
+          <p class="circuit-desc">Magny-Cours, c'est un circuit de référence en France. Son tracé technique enchaîne des virages lents et des sections rapides avec très peu de droit en ligne : ça demande une gestion permanente des trajectoires. L'épingle Adélaïde, la chicane de la Lycée, le complexe de la Nürburgring… chaque secteur a sa propre logique. Rouler ici, c'est travailler le pilotage dans toute sa diversité.</p>
           <div class="circuit-stats">
             <div class="circuit-stat-grid">
               <div class="circuit-stat-row"><span class="circuit-stat-label">Longueur</span><span class="circuit-stat-value">4 411 m</span></div>
               <div class="circuit-stat-row"><span class="circuit-stat-label">Largeur</span><span class="circuit-stat-value">10 à 18 m</span></div>
               <div class="circuit-stat-row"><span class="circuit-stat-label">Altitude</span><span class="circuit-stat-value">224 m</span></div>
-              <div class="circuit-stat-row"><span class="circuit-stat-label">FIA</span><span class="circuit-stat-value">Oui</span></div>
+              <div class="circuit-stat-row"><span class="circuit-stat-label">FIA</span><span class="circuit-stat-value">Grade 1</span></div>
               <div class="circuit-stat-row"><span class="circuit-stat-label">FFSA</span><span class="circuit-stat-value">Compétition</span></div>
               <div class="circuit-stat-row"><span class="circuit-stat-label">Niv. sonore</span><span class="circuit-stat-value">100 dB</span></div>
             </div>
@@ -536,8 +595,8 @@
 <section class="testi-section" id="temoignages">
   <div style="max-width:1280px;margin:0 auto;">
     <div class="section-header" style="padding:0;text-align:left;">
-      <div class="section-tag" style="justify-content:flex-start;">Ils ont roulé</div>
-      <h2 class="section-title">LES <span>TÉMOIGNAGES</span></h2>
+      <div class="section-tag" style="justify-content:flex-start;">LES TÉMOIGNAGES</div>
+      <h2 class="section-title">ILS ONT <span>ROULÉ...</span></h2>
     </div>
     <div class="testi-carousel" id="testiCarousel">
       <div class="testi-track" id="testiTrack">
@@ -569,7 +628,7 @@
         <div class="testi-card">
           <div class="testi-quote">&ldquo;</div>
           <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-          <p class="testi-text">La formation S&eacute;curit&eacute; Routi&egrave;re m&rsquo;a v&eacute;ritablement ouvert les yeux. Freinage d&rsquo;urgence, gestion du d&eacute;rapage&nbsp;: des situations qu&rsquo;on croit conna&icirc;tre jusqu&rsquo;&agrave; ce qu&rsquo;on les vive avec un expert. Indispensable.</p>
+          <p class="testi-text">La formation S&eacute;curit&eacute; Routi&egrave;re m&rsquo;a v&eacute;ritablement ouvert les yeux. Freinage d&rsquo;urgence, gestion de l&rsquo;&eacute;vitement&nbsp;: des situations qu&rsquo;on croit conna&icirc;tre jusqu&rsquo;&agrave; ce qu&rsquo;on les vive avec un expert. Indispensable.</p>
           <div class="testi-author">Ramon E.</div>
           <div class="testi-role">Val de Vienne &middot; S&eacute;curit&eacute; Routi&egrave;re</div>
         </div>
@@ -577,9 +636,9 @@
         <div class="testi-card">
           <div class="testi-quote">&ldquo;</div>
           <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-          <p class="testi-text">Coaching avec ma propre voiture sur le circuit de Pont-l&rsquo;&Eacute;v&ecirc;que&nbsp;: Philippe s&rsquo;est adapt&eacute; imm&eacute;diatement &agrave; mon v&eacute;hicule et &agrave; mon style. Les debriefings vid&eacute;o apr&egrave;s chaque sortie sont redoutablement efficaces.</p>
-          <div class="testi-author">Pascal V.</div>
-          <div class="testi-role">Pont-l&rsquo;&Eacute;v&ecirc;que &middot; Coaching avec ma voiture</div>
+          <p class="testi-text">Coaching avec ma propre voiture sur le circuit de Dreux&nbsp;: Philippe s&rsquo;est adapt&eacute; imm&eacute;diatement &agrave; mon v&eacute;hicule et &agrave; mon style. Les debriefings vid&eacute;o sont redoutablement efficaces.</p>
+          <div class="testi-author">Sylvaine V.</div>
+          <div class="testi-role">Dreux &middot; Coaching avec ma voiture</div>
         </div>
 
       </div>
@@ -611,7 +670,7 @@
   <div class="footer-contact">
     <a href="tel:+33681193607">+33 6 81 19 36 07</a>
     <a href="mailto:contact@driveprecision.fr">contact@driveprecision.fr</a>
-    <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="footer-insta">
+    <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener noreferrer" class="footer-insta">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <circle cx="12" cy="12" r="4"/>

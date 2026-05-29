@@ -248,7 +248,26 @@
     <li><a href="index.html#temoignages">LES TÉMOIGNAGES</a></li>
     <li><a href="contact.html" aria-current="page">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener" aria-label="Instagram DrivePrecision" class="nav-insta">
+      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <radialGradient id="ig-gradient" cx="0.3" cy="1" r="1.2">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="10%" stop-color="#fdf497"/>
+            <stop offset="30%" stop-color="#fd5949"/>
+            <stop offset="55%" stop-color="#d6249f"/>
+            <stop offset="80%" stop-color="#8c33b0"/>
+            <stop offset="100%" stop-color="#4f5bd5"/>
+          </radialGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5" fill="url(#ig-gradient)"/>
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
+        <circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/>
+      </svg>
+    </a>
+    <a href="contact.html" class="nav-cta">Réserver<span class="nav-cta-tel">+33 6 81 19 36 07</span></a>
+  </div>
   <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -292,7 +311,7 @@
           </div>
           <div class="contact-channel-body">
             <div class="contact-channel-type">Instagram</div>
-            <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="contact-channel-value insta">
+            <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener noreferrer" class="contact-channel-value insta">
               <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               @driveprecision
             </a>
@@ -397,7 +416,7 @@
   <div class="footer-contact">
     <a href="tel:+33681193607">+33 6 81 19 36 07</a>
     <a href="mailto:contact@driveprecision.fr">contact@driveprecision.fr</a>
-    <a href="https://www.instagram.com/driveprecision" target="_blank" rel="noopener noreferrer" class="footer-insta">
+    <a href="https://www.instagram.com/driveprecision/" target="_blank" rel="noopener noreferrer" class="footer-insta">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <circle cx="12" cy="12" r="4"/>
@@ -424,7 +443,7 @@
     const feedback = document.getElementById('formFeedback');
     const submitBtn = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       feedback.className = 'form-feedback';
 
@@ -458,18 +477,45 @@
         return;
       }
 
-      // ── Simuler l'envoi (remplacer par votre intégration back-end / Formspree / etc.) ──
+      // ── Envoi vers /api/contact (Vercel Serverless + Resend) ──
       submitBtn.disabled = true;
       submitBtn.textContent = 'Envoi en cours…';
 
-      setTimeout(() => {
-        feedback.innerHTML = '<strong>Message envoyé !</strong> Philippe vous répondra dans les 24 heures. À très bientôt sur les circuits.';
-        feedback.classList.add('success', 'visible');
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        form.reset();
+      const payload = {
+        prenom:     form.querySelector('#prenom').value.trim(),
+        nom:        form.querySelector('#nom').value.trim(),
+        email:      form.querySelector('#email').value.trim(),
+        telephone:  form.querySelector('#telephone').value.trim(),
+        entreprise: form.querySelector('#entreprise').value.trim(),
+        sujet:      form.querySelector('#sujet').value,
+        message:    form.querySelector('#message').value.trim(),
+        _hp_website: form.querySelector('input[name="_hp_website"]').value,
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          feedback.innerHTML = '<strong>Message envoyé !</strong> Philippe vous répondra dans les 24 heures. À très bientôt sur les circuits.';
+          feedback.classList.add('success', 'visible');
+          form.reset();
+        } else {
+          feedback.textContent = data.error || 'Une erreur est survenue. Veuillez réessayer.';
+          feedback.classList.add('visible');
+        }
+      } catch {
+        feedback.textContent = 'Impossible d\'envoyer le message. Vérifiez votre connexion.';
+        feedback.classList.add('visible');
+      } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Envoyer ma demande <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>';
-      }, 900);
+      }
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
     // ── Burger menu ────────────────────────────────────────
     const burger = document.getElementById('navBurger');

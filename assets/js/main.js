@@ -165,6 +165,58 @@
     });
   }
 
+  // ── Coach carousel ─────────────────────────────────────────────────
+  const coachCarousel = document.getElementById('coachCarousel');
+  const coachTrack    = document.getElementById('coachTrack');
+  const coachPrev     = document.getElementById('coachPrev');
+  const coachNext     = document.getElementById('coachNext');
+  const coachDotsWrap = document.getElementById('coachDots');
+
+  if (coachCarousel && coachTrack) {
+    const slides = [...coachTrack.querySelectorAll('.coach-carousel-slide')];
+    const total  = slides.length;
+    let current  = 0;
+
+    // Build dots
+    coachDotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'coach-carousel-dot';
+      dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+      dot.addEventListener('click', () => goToCoach(i));
+      coachDotsWrap.appendChild(dot);
+    });
+
+    const goToCoach = (index) => {
+      current = (index + total) % total;
+      coachTrack.style.transform = `translateX(-${current * 100}%)`;
+      [...coachDotsWrap.querySelectorAll('.coach-carousel-dot')]
+        .forEach((d, i) => d.classList.toggle('is-active', i === current));
+      if (coachPrev) coachPrev.disabled = current === 0;
+      if (coachNext) coachNext.disabled = current === total - 1;
+    };
+
+    if (coachPrev) coachPrev.addEventListener('click', () => goToCoach(current - 1));
+    if (coachNext) coachNext.addEventListener('click', () => goToCoach(current + 1));
+
+    // Swipe support
+    let touchStartX = 0;
+    coachCarousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    coachCarousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) goToCoach(current + (dx < 0 ? 1 : -1));
+    });
+
+    // Auto-advance every 5 s
+    let coachAuto = setInterval(() => goToCoach((current + 1) % total), 5000);
+    coachCarousel.addEventListener('mouseenter', () => clearInterval(coachAuto));
+    coachCarousel.addEventListener('mouseleave', () => {
+      coachAuto = setInterval(() => goToCoach((current + 1) % total), 5000);
+    });
+
+    goToCoach(0);
+  }
+
   // ── Burger menu ────────────────────────────────────────
   const burger = document.getElementById('navBurger');
   const navLinksList = nav ? nav.querySelector('.nav-links') : null;
