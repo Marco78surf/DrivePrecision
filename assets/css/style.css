@@ -374,6 +374,7 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
 }
 .voiture-img-wrap {
   position: relative;
+  overflow: hidden;
 }
 .voiture-img-wrap::before {
   content: 'ALPINE A110 S';
@@ -385,16 +386,18 @@ nav.scrolled { background: rgba(0,0,0,.95); border-bottom: 1px solid rgba(255,25
   line-height: 1;
 }
 .voiture-img {
-  width: 100%; height: 320px; object-fit: cover; object-position: center;
+  width: 100%; height: 320px; object-fit: cover; object-position: center 40%;
   position: relative; z-index: 1;
-  filter: brightness(1.05) contrast(1.02);
+  display: block;
+  transform: scale(1.08);
+  transform-origin: center 40%;
 }
 .voiture-specs {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
 }
 .spec {
   background: var(--dark3); border: 1px solid #222;
-  padding: 16px 18px;
+  padding: 12px 14px;
 }
 .spec-val {
   font-family: 'Barlow Condensed', sans-serif;
