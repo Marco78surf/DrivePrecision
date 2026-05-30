@@ -68,9 +68,14 @@ function buildHtml({ prenom, nom, email, telephone, entreprise, sujet, message }
       <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);">
         <!-- Header -->
         <tr>
-          <td style="background:#DF3C3D;padding:24px 32px;">
-            <p style="margin:0;font-size:22px;font-weight:700;color:#fff;letter-spacing:.05em;">DRIVE PRECISION</p>
-            <p style="margin:4px 0 0;font-size:13px;color:rgba(255,255,255,.8);">Nouveau message via le formulaire de contact</p>
+          <td style="background:#111111;padding:20px 32px;text-align:center;">
+            <img src="https://www.driveprecision.fr/assets/img/Logo.png" alt="Drive Precision" width="180" style="display:block;margin:0 auto;max-width:180px;">
+          </td>
+        </tr>
+        <!-- Bandeau rouge -->
+        <tr>
+          <td style="background:#DF3C3D;padding:14px 32px;">
+            <p style="margin:0;font-size:13px;font-weight:600;color:#fff;letter-spacing:.08em;text-transform:uppercase;">Nouveau message via le formulaire de contact</p>
           </td>
         </tr>
         <!-- Sujet -->
